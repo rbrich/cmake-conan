@@ -235,7 +235,7 @@ function(conan_install)
     cmake_parse_arguments(ARGS CONAN_ARGS ${ARGN})
     set(CONAN_OUTPUT_FOLDER ${CMAKE_BINARY_DIR}/conan)
     # Invoke "conan install" with the provided arguments
-    set(CONAN_ARGS ${CONAN_ARGS} -of=${CONAN_OUTPUT_FOLDER})
+    set(CONAN_ARGS ${CONAN_ARGS} ${CONAN_OPTIONS} -of=${CONAN_OUTPUT_FOLDER})
     message(STATUS "CMake-Conan: conan install ${CMAKE_SOURCE_DIR} ${CONAN_ARGS} ${ARGN}")
     execute_process(COMMAND ${CONAN_COMMAND} install ${CMAKE_SOURCE_DIR} ${CONAN_ARGS} ${ARGN} --format=json
                     RESULT_VARIABLE return_code
